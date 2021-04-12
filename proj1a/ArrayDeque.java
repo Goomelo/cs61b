@@ -125,10 +125,5 @@ public class ArrayDeque<T> {
         else return items[first + index];
     }
 
-    public T getRecursive(int index) {
-        if (index > size) { return null; }
-        else if(first+index > items.length) return items[first + index - items.length];
-        else return items[first + index];
-    }
 
 }
