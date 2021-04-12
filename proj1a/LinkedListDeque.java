@@ -12,8 +12,8 @@ public class LinkedListDeque<T> {
     }
     private LinkedNode sentinel;
 
-    public LinkedListDeque(T item) {
-        sentinel = new LinkedNode(item,new LinkedNode(null,null,null),new LinkedNode(null,null,null));
+    public LinkedListDeque() {
+        sentinel = new LinkedNode(null,new LinkedNode(null,null,null),new LinkedNode(null,null,null));
         size = 0;
     }
 
