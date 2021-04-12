@@ -63,8 +63,8 @@ public class ArrayDeque<T> {
         if (isFull()) {
             resize(items.length << 1); }
         first = nextFirst;
+        items[nextFirst] = item;
         nextFirst = minusOne(nextFirst);
-        items[first] = item;
         size += 1;
     }
 
@@ -102,17 +102,18 @@ public class ArrayDeque<T> {
     public T removeFirst() {
         if (isEmpty()) { return null; }
         T value = items[first];
+        items[first] = null;
         first = plusOne(first);
         nextFirst = plusOne(nextFirst);
-        nextLast  = minusOne(nextLast);
         size -= 1;
+        checkResize();
         return  value;
     }
 
     public T removeLast() {
         if (isEmpty()) { return null; }
-        T value = items[minusOne(nextLast)];
         nextLast = minusOne(nextLast);
+        T value = items[nextLast];
         items[nextLast] = null;
         size -= 1;
         checkResize();
@@ -120,8 +121,8 @@ public class ArrayDeque<T> {
     }
 
     public T get(int index) {
-        if (index > size) { return null; }
-        else if (first+index > items.length) return items[first + index - items.length];
+        if (index >= size) { return null; }
+        else if (first+index >= items.length) return items[first + index - items.length];
         else return items[first + index];
     }
 
