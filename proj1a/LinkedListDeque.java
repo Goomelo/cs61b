@@ -70,9 +70,9 @@ public class LinkedListDeque<T> {
     public T removeFirst() {
         if (isEmpty())  { return null; }
         T value = sentinel.next.item;
-        sentinel.next = sentinel.next.next;
         sentinel.next.next.prev = sentinel.next.prev;
         sentinel.next.prev.next = sentinel.next.next;
+        sentinel.next = sentinel.next.next;
         size -= 1;
         return  value;
     }
