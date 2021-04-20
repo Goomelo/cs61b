@@ -1,4 +1,4 @@
-public class ArrayDeque<T> {
+public class ArrayDeque<T> implements Deque<T>{
     private int size;
     private T[] items;
     private int nextFirst;
@@ -66,6 +66,7 @@ public class ArrayDeque<T> {
     /*
     Adds an item of type T to the front of the deque.
      */
+    @Override
     public void addFirst(T item) {
         if (isFull()) {
             resize(size * 2);
@@ -80,6 +81,7 @@ public class ArrayDeque<T> {
     /*
     Adds an item of type T to the back of the deque.
      */
+    @Override
     public void addLast(T item) {
         if (isFull()) {
             resize(size * 2);
@@ -102,6 +104,7 @@ public class ArrayDeque<T> {
     /*
     Removes and returns the item at the back of the deque. If no such item exists, returns null.
      */
+    @Override
     public T removeLast() {
         if (isEmpty()) {
             return null;
@@ -114,6 +117,7 @@ public class ArrayDeque<T> {
         return item;
     }
 
+    @Override
     public T removeFirst() {
         if (isEmpty()) {
             return null;
@@ -132,6 +136,7 @@ public class ArrayDeque<T> {
     Gets the item at the given index, where 0 is the front, 1 is the next item, and so forth.
     If no such item exists, returns null.
      */
+    @Override
     public T get(int index) {
         if (index >= size) {
             return null;
@@ -145,6 +150,7 @@ public class ArrayDeque<T> {
     /*
     Returns the number of items in the deque.
      */
+    @Override
     public int size() {
         return size;
     }
@@ -170,6 +176,7 @@ public class ArrayDeque<T> {
     /*
     Returns true if deque is empty, false otherwise.
      */
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
@@ -177,6 +184,7 @@ public class ArrayDeque<T> {
     /*
     Prints the items in the deque from first to last, separated by a space.
      */
+    @Override
     public void printDeque() {
         for (int i = 0; i < size; i++) {
             System.out.print(get(i) + " ");
