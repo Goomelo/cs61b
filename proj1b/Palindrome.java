@@ -1,9 +1,7 @@
-import java.util.LinkedList;
-import java.util.ArrayDeque;
 
 public class Palindrome {
     public Deque<Character> wordToDeque(String word) {
-        Deque<Character> deque = new ArrayDeque<Character>();
+        Deque<Character> deque = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i += 1) {
             deque.addLast(word.charAt(i));
         }
@@ -11,7 +9,7 @@ public class Palindrome {
     }
 
     private Deque<Character> rwordToDeque(String word) {
-        Deque<Character> deque = new ArrayDeque<Character>();
+        Deque<Character> deque = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i += 1) {
             deque.addFirst(word.charAt(i));
         }
