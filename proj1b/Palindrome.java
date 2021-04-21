@@ -1,3 +1,10 @@
+/**
+ * @ClassName Palindrome
+ * @Description TODO
+ * @Author Yixiang Zhao
+ * @Date 2018/7/28 18:20
+ * @Version 1.0
+ */
 public class Palindrome {
     public Deque<Character> wordToDeque(String word) {
         Deque<Character> res = new ArrayDeque<>();
