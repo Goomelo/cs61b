@@ -2,8 +2,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class TestPalindrome {
-    // You must use this palindrome, and not instantiate
-    // new Palindromes, or the autograder might be upset.
     static Palindrome palindrome = new Palindrome();
 
     @Test
@@ -14,27 +12,45 @@ public class TestPalindrome {
             actual += d.removeFirst();
         }
         assertEquals("persiflage", actual);
-    } //Uncomment this class once you've created your Palindrome class.
+    }
 
     @Test
     public void testIsPalindrome() {
+        //Checking empty string case
         assertTrue(palindrome.isPalindrome(""));
 
+        //Checking length 1 string case
         assertTrue(palindrome.isPalindrome("a"));
         assertTrue(palindrome.isPalindrome("Z"));
 
-        assertTrue(palindrome.isPalindrome("MoM"));
-        assertTrue(palindrome.isPalindrome("racecar"));
+        //Checking true statements
+        assertTrue(palindrome.isPalindrome("mom"));
+        assertTrue(palindrome.isPalindrome("repaper"));
         assertTrue(palindrome.isPalindrome("deified"));
-        assertTrue(palindrome.isPalindrome("qwerewq"));
-        assertTrue(palindrome.isPalindrome("abcdedcba"));
 
+        //Checking false statements
+        assertFalse(palindrome.isPalindrome("cat"));
+        assertFalse(palindrome.isPalindrome("awesome"));
+        assertFalse(palindrome.isPalindrome("clock"));
 
-        assertFalse(palindrome.isPalindrome("Chelsea"));
-        assertFalse(palindrome.isPalindrome("dancer"));
-        assertFalse(palindrome.isPalindrome("pokemon"));
-        assertFalse(palindrome.isPalindrome("pikachu"));
-        assertFalse(palindrome.isPalindrome("cutedog"));
-        assertFalse(palindrome.isPalindrome("sbsunyunqi"));
+    }
+
+    @Test
+    public void testIsPalindromeOffByOne() {
+        //Checking empty string case
+        OffByOne test = new OffByOne();
+
+        assertTrue(palindrome.isPalindrome("", test));
+
+        //Checking length 1 string case
+        assertTrue(palindrome.isPalindrome("a", test));
+        assertTrue(palindrome.isPalindrome("Z", test));
+
+        //Checking true statements
+        assertTrue(palindrome.isPalindrome("flake", test));
+
+        //Checking false statements
+        assertFalse(palindrome.isPalindrome("awesome", test));
+
     }
 }
